@@ -5,7 +5,6 @@ local otherStats = {}
 function otherStats.doesSTExist(cardName)
     conn = dbase.open("YuGiscord.db")
     local search = conn:exec("SELECT COUNT(*) FROM SpellsAndTraps WHERE Cardname = '" .. cardName .. "'")
-    --search:reset():bind(cardName):step()
     local result = tonumber(search[1][1])
     if result ~= 0 then return true else return false end
     conn:close()
