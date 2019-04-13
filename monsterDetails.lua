@@ -5,7 +5,6 @@ local monsterStats = {}
 function monsterStats.doesMonsterExist(cardName)
     conn = dbase.open("YuGiscord.db")
     local search = conn:exec("SELECT COUNT(*) FROM Monsters WHERE Cardname = '" .. cardName .. "'")
-    --search:reset():bind(cardName):step()
     print(search[1][1])
     local result = tonumber(search[1][1])
     if result ~= 0 then return true else return false end
