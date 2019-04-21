@@ -28,7 +28,7 @@ end
 
 function playerInGame(playerName)
     local found = false 
-    for k, v in pairs(playerList) do
+    for k, v in ipairs(playerList) do
         if v == playerName then
             found = true
             return found
