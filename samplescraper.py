@@ -21,7 +21,7 @@ for i in range(0, len(monsters)):
     cardImageElements = lookerPage.find_all("img")
     for images in cardImageElements:
         testAttribute = images.get("data-image-name")
-        if testAttribute is not None and testAttribute.count("notice") == 0:
+        if testAttribute is not None and "notice" not in testAttribute:
             cardImage = images.get("src")
             break
     collection["Monsters"].append(monsters[i])
