@@ -16,43 +16,6 @@ function stringConverter(cardName)
     return newString
 end
 
-function playerExists(guild, playerName)
-    local found = false 
-    for player in guild.members:iter() do
-        if player.username == playerName then
-            found = true
-            return found
-        end
-    end
-    return found
-end
-
-function playerInGame(playerName)
-    local found = false 
-    for k, v in ipairs(playerList) do
-        if v == playerName then
-            found = true
-            return found
-        end
-    end
-    return found
-end
-
---/////////////////////////////////////////////////////////////////////////
-
-function deckCheckAndAdd(playerName, cardName)
-    if stats.doesMonsterExist(cardName) then
-    
-    end
-end
---/////////////////////////////////////////////////////////////////////////
-
-client:on("ready", function()
-    print("Ready to go.")
-end
-)
-
-
 client:on("messageCreate", function(message)
     local command = message.content
     local commandPlayer = message.author.username
@@ -86,22 +49,6 @@ client:on("messageCreate", function(message)
                     }
                 }
             end
-        end
-        if not playerInGame(commandPlayer) and singleAction == "enter" then
-            playerList[#playerList + 1] = commandPlayer
-            message.channel:send(
-                commandPlayer .. " has entered Yu-Gi-Oh Discordia!"
-            )
-        end 
-        if playerInGame(commandPlayer) then
-            if string.sub(command, 3, 9) == "deckadd" and string.sub(command, 11, -1) ~= "" then
-            local cardToFind = string.sub(command, 11, -1)
-            if stats.doesMonsterExist(cardToFind) == true then
-
-            elseif stStuff.doesSTExist(cardToFind) == true then
-            
-
-
         end
     end
 end
